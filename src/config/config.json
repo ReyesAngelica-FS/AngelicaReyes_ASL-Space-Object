@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "yourpassword",
+    "database": "space_object_db",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "yourpassword",
+    "database": "space_object_db_test",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "yourpassword",
+    "database": "space_object_db",
+    "host": "mysql",
+    "dialect": "mysql"
+  }
+}

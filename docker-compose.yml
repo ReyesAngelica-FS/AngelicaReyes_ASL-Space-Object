@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  space-api:
+    build: .
+    container_name: space-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=yourpassword
+      - DB_NAME=space_object_db
+    volumes:
+      - .:/usr/src/app
+    command: npm run dev
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword
+      MYSQL_DATABASE: space_object_db
