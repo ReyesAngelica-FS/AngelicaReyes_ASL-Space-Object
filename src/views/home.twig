@@ -3,16 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ title }}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at center, #1a1a2e 0%, #000000 100%);
+      color: #ffffff;
+      text-align: center;
+      padding: 3rem;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #00d9ff;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #b0bec5;
+    }
+    hr {
+      margin: 2rem auto;
+      width: 60%;
+      border: 1px solid #00d9ff;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1.5rem;
+    }
+    li {
+      margin: 0.5rem 0;
+    }
+    a {
+      text-decoration: none;
+      color: #00d9ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #80d8ff;
+    }
+  </style>
 </head>
 <body>
   <h1>{{ title }}</h1>
   <p>{{ description }}</p>
-  <hr>
-  <p><strong>API Endpoints:</strong></p>
-  <ul>
-    <li><a href="/galaxies">/galaxies</a></li>
-    <li><a href="/stars">/stars</a></li>
-    <li><a href="/planets">/planets</a></li>
-  </ul>
-</body>
-</html>

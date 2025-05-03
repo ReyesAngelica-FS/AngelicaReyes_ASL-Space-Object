@@ -8,6 +8,7 @@ services:
       - "8080:8080"
     depends_on:
       - mysql
+    restart: on-failure
     environment:
       - DB_HOST=mysql
       - DB_USER=root
@@ -15,11 +16,13 @@ services:
       - DB_NAME=space_object_db
     volumes:
       - .:/usr/src/app
+    working_dir: /usr/src/app
     command: npm run dev
 
   mysql:
     image: mysql:8.0
     restart: always
+    container_name: mysql
     ports:
       - "3306:3306"
     environment:
