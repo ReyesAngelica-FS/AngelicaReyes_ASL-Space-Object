@@ -1,0 +1,9 @@
+{% extends "layout.twig" %}
+
+{% block title %}Add New Star{% endblock %}
+
+{% block content %}
+  <h2>⭐ Add a New Star</h2>
+  {% include "stars/_form.twig" with { star: {}, isNew: true } %}
+  <p><a href="/stars">← Back to Stars</a></p>
+{% endblock %}

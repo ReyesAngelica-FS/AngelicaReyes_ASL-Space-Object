@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ planet.name }} - Planet Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+      color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #00d9ff;
+    }
+    .info-box {
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+    }
+    img {
+      max-width: 100%;
+      border: 2px solid #00d9ff;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #00d9ff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #80d8ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>{{ planet.name }}</h1>
+  
+  <div class="info-box">
+    {% if planet.extension %}
+      <img src="/images/{{ planet.id }}{{ planet.extension }}" alt="{{ planet.name }}">
+    {% else %}
+      <p><em>No image available</em></p>
+    {% endif %}
+
+    <p><strong>Type:</strong> {{ planet.type }}</p>
+    <p><strong>Galaxy:</strong> {{ planet.galaxyName }}</p>
+    <p><strong>Atmosphere:</strong> {{ planet.atmosphere }}</p>
+    <p><strong>Description:</strong> {{ planet.description }}</p>
+  </div>
+
+  <div>
+    <a href="/planets/{{ planet.id }}/edit">Edit</a>
+    <a href="/planets">Back to All Planets</a>
+  </div>
+</body>
+</html>

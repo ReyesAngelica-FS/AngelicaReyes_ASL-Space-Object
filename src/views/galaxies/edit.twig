@@ -1,0 +1,6 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+  <h1>Edit Galaxy</h1>
+  {% include "galaxies/_form.twig" with { galaxy: galaxy } %}
+{% endblock %}

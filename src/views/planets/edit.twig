@@ -1,0 +1,6 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+  <h1>Edit Planet</h1>
+  {% include "planets/_form.twig" with { planet: planet } %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "layout.twig" %}
+
+{% block title %}Add New Planet{% endblock %}
+
+{% block content %}
+  <h2>🪐 Add a New Planet</h2>
+  {% include "planets/_form.twig" with { planet: {}, isNew: true } %}
+  <p><a href="/planets">← Back to Planets</a></p>
+{% endblock %}

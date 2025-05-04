@@ -1,0 +1,9 @@
+{% extends "layout.twig" %}
+
+{% block title %}Add New Galaxy{% endblock %}
+
+{% block content %}
+  <h2> 🌌 Add a New Galaxy</h2>
+  {% include "galaxies/_form.twig" with { galaxy: {}, isNew: true } %}
+  <p><a href="/galaxies">← Back to Galaxies</a></p>
+{% endblock %}

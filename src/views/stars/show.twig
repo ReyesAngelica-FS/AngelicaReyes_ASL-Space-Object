@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ star.name }} - Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+      color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #00d9ff;
+    }
+    .info-box {
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+    }
+    img {
+      max-width: 100%;
+      border: 2px solid #00d9ff;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #00d9ff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #80d8ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>{{ star.name }}</h1>
+  
+  <div class="info-box">
+    {% if star.extension %}
+      <img src="/images/{{ star.id }}{{ star.extension }}" alt="{{ star.name }}">
+    {% else %}
+      <p><em>No image available</em></p>
+    {% endif %}
+    
+    <p><strong>Type:</strong> {{ star.type }}</p>
+    <p><strong>Size:</strong> {{ star.size }}</p>
+    <p><strong>Description:</strong> {{ star.description }}</p>
+  </div>
+
+  <div>
+    <a href="/stars/{{ star.id }}/edit">Edit</a>
+    <a href="/stars">Back to All Stars</a>
+  </div>
+</body>
+</html>
