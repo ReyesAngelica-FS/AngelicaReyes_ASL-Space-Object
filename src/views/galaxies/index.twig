@@ -1,0 +1,19 @@
+<h1>All Galaxies</h1>
+<a href="/galaxies/new">➕ Add a New Galaxy</a>
+<ul>
+  {% for galaxy in galaxies %}
+    <li>
+      <strong>{{ galaxy.name }}</strong>
+      {% if galaxy.extension %}
+        <br>
+        <img src="/images/{{ galaxy.id }}{{ galaxy.extension }}" alt="{{ galaxy.name }}" width="150">
+      {% endif %}
+      <br>
+      Type: {{ galaxy.type }} |
+      Distance: {{ galaxy.distance }} light-years
+      <br>
+      <a href="/galaxies/{{ galaxy.id }}/edit">✏️ Edit</a> |
+      <a href="/galaxies/{{ galaxy.id }}/delete">🗑️ Delete</a>
+    </li>
+  {% endfor %}
+</ul>

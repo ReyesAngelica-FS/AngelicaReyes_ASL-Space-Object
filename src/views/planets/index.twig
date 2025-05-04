@@ -1,0 +1,19 @@
+<h1>All Planets</h1>
+<a href="/planets/new">➕ Add a New Planet</a>
+<ul>
+  {% for planet in planets %}
+    <li>
+      <strong>{{ planet.name }}</strong>
+      {% if planet.extension %}
+        <br>
+        <img src="/images/{{ planet.id }}{{ planet.extension }}" alt="{{ planet.name }}" width="150">
+      {% endif %}
+      <br>
+      Star ID: {{ planet.starId }} |
+      Has Life: {{ planet.hasLife ? 'Yes' : 'No' }}
+      <br>
+      <a href="/planets/{{ planet.id }}/edit">✏️ Edit</a> |
+      <a href="/planets/{{ planet.id }}/delete">🗑️ Delete</a>
+    </li>
+  {% endfor %}
+</ul>

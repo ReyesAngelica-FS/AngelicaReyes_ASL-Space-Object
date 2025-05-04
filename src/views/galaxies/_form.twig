@@ -1,0 +1,40 @@
+<form
+  method="POST"
+  enctype="multipart/form-data"
+  action="/galaxies{% if galaxy.id %}/{{ galaxy.id }}{% endif %}">
+
+  {% if galaxy.id %}
+    <input type="hidden" name="id" value="{{ galaxy.id }}">
+  {% endif %}
+
+  <div>
+    <label for="name">Galaxy Name:</label>
+    <input type="text" name="name" id="name" value="{{ galaxy.name | default('') }}" required>
+  </div>
+
+  <div>
+    <label for="type">Galaxy Type:</label>
+    <input type="text" name="type" id="type" value="{{ galaxy.type | default('') }}" required>
+  </div>
+
+  <div>
+    <label for="distance">Distance (light-years):</label>
+    <input type="number" name="distance" id="distance" value="{{ galaxy.distance | default('') }}" required>
+  </div>
+
+  <div>
+    <label for="image">Upload Image:</label>
+    <input type="file" name="image" id="image">
+  </div>
+
+  {% if galaxy.extension %}
+    <div>
+      <p>Current Image:</p>
+      <img src="/images/{{ galaxy.id }}{{ galaxy.extension }}" alt="Galaxy Image" width="200">
+    </div>
+  {% endif %}
+
+  <div>
+    <button type="submit">Save Galaxy</button>
+  </div>
+</form>

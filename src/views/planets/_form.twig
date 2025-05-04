@@ -1,0 +1,43 @@
+<form
+  method="POST"
+  enctype="multipart/form-data"
+  action="/planets{% if planet.id %}/{{ planet.id }}{% endif %}">
+
+  {% if planet.id %}
+    <input type="hidden" name="id" value="{{ planet.id }}">
+  {% endif %}
+
+  <div>
+    <label for="name">Planet Name:</label>
+    <input type="text" name="name" id="name" value="{{ planet.name | default('') }}" required>
+  </div>
+
+  <div>
+    <label for="starId">Star ID:</label>
+    <input type="number" name="starId" id="starId" value="{{ planet.starId | default('') }}" required>
+  </div>
+
+  <div>
+    <label for="hasLife">Has Life?</label>
+    <select name="hasLife" id="hasLife">
+      <option value="false" {% if planet.hasLife == false %}selected{% endif %}>No</option>
+      <option value="true" {% if planet.hasLife == true %}selected{% endif %}>Yes</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="image">Upload Image:</label>
+    <input type="file" name="image" id="image">
+  </div>
+
+  {% if planet.extension %}
+    <div>
+      <p>Current Image:</p>
+      <img src="/images/{{ planet.id }}{{ planet.extension }}" alt="Planet Image" width="200">
+    </div>
+  {% endif %}
+
+  <div>
+    <button type="submit">Save Planet</button>
+  </div>
+</form>

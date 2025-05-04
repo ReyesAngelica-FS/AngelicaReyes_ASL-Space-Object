@@ -1,0 +1,18 @@
+<h1>All Stars</h1>
+<a href="/stars/new">➕ Add a New Star</a>
+<ul>
+  {% for star in stars %}
+    <li>
+      <strong>{{ star.name }}</strong>
+      {% if star.extension %}
+        <br>
+        <img src="/images/{{ star.id }}{{ star.extension }}" alt="{{ star.name }}" width="150">
+      {% endif %}
+      <br>
+      Spectral Type: {{ star.spectralType }}
+      <br>
+      <a href="/stars/{{ star.id }}/edit">✏️ Edit</a> |
+      <a href="/stars/{{ star.id }}/delete">🗑️ Delete</a>
+    </li>
+  {% endfor %}
+</ul>
