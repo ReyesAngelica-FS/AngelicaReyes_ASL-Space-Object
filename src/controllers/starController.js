@@ -23,25 +23,29 @@ exports.getStarById = async (req, res) => {
     }
 };
 
-// POST create a new star
-exports.createStar = async (req, res) => {
+// ✅ POST create a new star (modified to support file upload middleware)
+exports.createStar = async (req, res, next) => {
     try {
         const newStar = await Star.create(req.body);
-        res.status(201).json(newStar);
+        req.starId = newStar.id; // ⬅️ Pass ID to upload middleware
+        req.createdStar = newStar; // ⬅️ Store the star to respond later
+        next(); // ⬅️ Move to the upload middleware
     } catch (error) {
         res.status(500).json({ message: 'Error creating star', error: error.message });
     }
 };
 
-// PUT update a star
-exports.updateStar = async (req, res) => {
+// ✅ PUT update a star (modified to support file upload middleware)
+exports.updateStar = async (req, res, next) => {
     try {
         const star = await Star.findByPk(req.params.id);
         if (!star) {
-        return res.status(404).json({ message: 'Star not found' });
+            return res.status(404).json({ message: 'Star not found' });
         }
         await star.update(req.body);
-        res.status(200).json(star);
+        req.starId = star.id;
+        req.updatedStar = star;
+        next();
     } catch (error) {
         res.status(500).json({ message: 'Error updating star', error: error.message });
     }
